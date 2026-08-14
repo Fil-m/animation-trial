@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пробне заняття з анімації для дітей — Animation Mentors | Karlsruhe</title>
+<meta name="description" content="Безкоштовне пробне заняття з анімації для дітей 6–12 років. Онлайн або в Karlsruhe. Учні — призери міжнародних фестивалів. Можна відвідати до 3 разів, а з новим другом — ще раз.">
+<meta property="og:title" content="Пробне заняття з анімації для дітей — Animation Mentors">
+<meta property="og:description" content="Безкоштовне пробне заняття: дитина створює власний мультфільм. Онлайн або в Karlsruhe. Учні — призери міжнародних фестивалів.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://fil-m.github.io/animation_mentors/assets/animation_hero_vibrant.png">
+<style>
+  :root{
+    --bg:#FFF9F1; --card:#FFFFFF; --ink:#2D2A32; --muted:#6B6572;
+    --coral:#FF6B4A; --orange:#FF9F45; --sun:#FFC93C; --teal:#1FBF9F; --purple:#7B5CFF;
+    --radius:20px; --shadow:0 8px 30px rgba(45,42,50,.08);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:auto;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+       background:var(--bg); color:var(--ink); line-height:1.6;}
+  .container{max-width:960px; margin:0 auto; padding:0 20px;}
+
+  /* ---------- TOP NAV ---------- */
+  nav{position:sticky; top:0; z-index:50; background:rgba(255,249,241,.92); backdrop-filter:blur(6px); border-bottom:1px solid rgba(45,42,50,.06);}
+  nav .container{display:flex; align-items:center; justify-content:space-between; padding-top:12px; padding-bottom:12px;}
+  .logo{font-weight:800; font-size:1.15rem; letter-spacing:-.02em;}
+  .logo span{color:var(--coral);}
+  .nav-cta{background:linear-gradient(135deg,var(--coral),var(--orange)); color:#fff; text-decoration:none;
+           font-weight:700; padding:10px 18px; border-radius:999px; font-size:.95rem; box-shadow:0 4px 14px rgba(255,107,74,.35);}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:56px 0 48px; text-align:center;
+      background:radial-gradient(1200px 500px at 50% -10%, #FFEFD6 0%, rgba(255,239,214,0) 60%), var(--bg);}
+  .hero-badge{display:inline-block; background:#fff; border:1.5px solid var(--sun); color:var(--ink);
+      border-radius:999px; padding:6px 16px; font-size:.85rem; font-weight:700; margin-bottom:18px;}
+  .emoji-row{font-size:2rem; margin-bottom:14px; letter-spacing:8px;}
+  h1{font-size:clamp(1.9rem, 5.4vw, 3rem); line-height:1.15; font-weight:800; letter-spacing:-.02em; max-width:760px; margin:0 auto;}
+  h1 .accent{background:linear-gradient(120deg,var(--coral),var(--purple)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .subtitle{max-width:640px; margin:18px auto 28px; font-size:1.08rem; color:var(--muted);}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center;}
+  .cta{display:inline-block; background:linear-gradient(135deg,var(--coral),var(--orange)); color:#fff; text-decoration:none;
+       font-weight:800; font-size:1.08rem; padding:16px 30px; border-radius:999px; box-shadow:0 8px 22px rgba(255,107,74,.4);}
+  .cta:hover{transform:translateY(-2px);}
+  .cta-ghost{display:inline-block; color:var(--ink); text-decoration:none; font-weight:700; font-size:1.02rem;
+      padding:14px 24px; border:2px solid var(--ink); border-radius:999px;}
+  .trial-note{margin-top:18px; font-size:.92rem; color:var(--muted);}
+  .trial-note strong{color:var(--coral);}
+  .hero-img{max-width:420px; width:90%; margin:34px auto 0; display:block; border-radius:var(--radius);
+      box-shadow:var(--shadow); border:6px solid #fff;}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:52px 0;}
+  section:nth-of-type(odd){background:#fff;}
+  h2{font-size:clamp(1.5rem, 3.6vw, 2rem); font-weight:800; letter-spacing:-.02em; text-align:center; margin-bottom:8px;}
+  .sec-sub{text-align:center; color:var(--muted); max-width:620px; margin:0 auto 34px;}
+  .grid{display:grid; gap:16px;}
+  .grid-2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+  .grid-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+
+  .card{background:var(--card); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow);
+      border:1px solid rgba(45,42,50,.05);}
+  .card .icon{font-size:1.9rem; display:block; margin-bottom:10px;}
+  .card h3{font-size:1.05rem; font-weight:800; margin-bottom:6px;}
+  .card p{font-size:.95rem; color:var(--muted);}
+  .card strong{color:var(--ink);}
+
+  /* timeline */
+  .timeline{counter-reset:step; display:grid; gap:12px; max-width:680px; margin:0 auto;}
+  .timeline li{list-style:none; background:var(--card); border-radius:16px; padding:16px 20px 16px 58px;
+      box-shadow:var(--shadow); border:1px solid rgba(45,42,50,.05); position:relative;}
+  .timeline li::before{counter-increment:step; content:counter(step); position:absolute; left:16px; top:14px;
+      width:30px; height:30px; border-radius:50%; background:linear-gradient(135deg,var(--teal),var(--sun));
+      color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center;}
+  .timeline strong{font-size:1rem;}
+  .timeline .time{display:inline-block; margin-left:8px; font-size:.78rem; font-weight:700; color:var(--teal);
+      background:rgba(31,191,159,.12); padding:2px 10px; border-radius:999px;}
+  .timeline .desc{font-size:.92rem; color:var(--muted); display:block; margin-top:2px;}
+
+  /* proof */
+  .proof-banner{background:linear-gradient(135deg,var(--purple),var(--coral)); color:#fff; border-radius:var(--radius);
+      padding:30px; text-align:center; box-shadow:0 12px 30px rgba(123,92,255,.35);}
+  .proof-banner .big{font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; line-height:1.2;}
+  .proof-banner p{margin-top:8px; font-size:1rem; opacity:.95;}
+  .proof-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:26px; align-items:center;}
+  .video-wrap{position:relative; padding-bottom:56.25%; height:0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);}
+  .video-wrap iframe{position:absolute; top:0; left:0; width:100%; height:100%; border:0;}
+  .quote{background:var(--card); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow); border-left:5px solid var(--coral);}
+  .quote p{font-style:italic; font-size:1.02rem;}
+  .quote .author{font-weight:800; color:var(--coral); margin-top:12px; font-style:normal;}
+  .quote .role{font-size:.85rem; color:var(--muted);}
+
+  /* trial rules */
+  .rules{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-top:8px;}
+  .rule{background:var(--card); border-radius:var(--radius); padding:24px; text-align:center; box-shadow:var(--shadow);
+      border:2px solid rgba(31,191,159,.25);}
+  .rule .num{font-size:2.4rem; font-weight:800; line-height:1; background:linear-gradient(135deg,var(--teal),var(--purple));
+      -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .rule .what{font-weight:800; margin-top:6px;}
+  .rule .how{font-size:.9rem; color:var(--muted); margin-top:4px;}
+  .rule.friend{border-color:rgba(255,107,74,.4);}
+  .rule.friend .num{background:linear-gradient(135deg,var(--coral),var(--sun)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+
+  /* steps */
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+  .step{text-align:center; padding:22px 16px;}
+  .step .icon{font-size:2.2rem;}
+  .step h3{margin:8px 0 4px;}
+  .step p{font-size:.9rem; color:var(--muted);}
+  .final-cta{text-align:center; padding:56px 0;}
+  .final-cta h2{margin-bottom:10px;}
+  .final-cta p{color:var(--muted); max-width:560px; margin:0 auto 24px;}
+
+  /* FAQ */
+  details{background:var(--card); border-radius:14px; border:1px solid rgba(45,42,50,.08); margin-bottom:10px;
+      box-shadow:var(--shadow); overflow:hidden;}
+  summary{cursor:pointer; font-weight:700; padding:16px 20px; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:'+'; font-size:1.4rem; font-weight:800; color:var(--coral);}
+  details[open] summary::after{content:'–';}
+  details .a{padding:0 20px 16px; font-size:.95rem; color:var(--muted);}
+  details .a strong{color:var(--ink);}
+
+  footer{background:#2D2A32; color:#CFCAD8; padding:30px 0; text-align:center; font-size:.9rem;}
+  footer a{color:#fff;}
+  footer .sep{margin:6px 12px; opacity:.4;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">Anim<span>Mentors</span></div>
+    <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdX01CuddMzcdBDTScMgclsGFJfJZRj4USjlGBAyK2_DJiP4w/viewform" target="_blank">Записатися →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-badge">🎬 Онлайн · Карлсруе · Безкоштовно</div>
+    <div class="emoji-row">🎬 ✨ 🧱</div>
+    <h1>Пробне заняття з анімації.<br><span class="accent">Дитина створює власний мультфільм.</span></h1>
+    <p class="subtitle">За 60–90 хвилин — від ідеї до готового фільму. Для дітей 6–12 років та їхніх батьків. Онлайн або в Karlsruhe.</p>
+    <div class="hero-actions">
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdX01CuddMzcdBDTScMgclsGFJfJZRj4USjlGBAyK2_DJiP4w/viewform" target="_blank">✍️ Записатися на пробне</a>
+      <a class="cta-ghost" href="#about">Дізнатися більше ↓</a>
+    </div>
+    <p class="trial-note">📅 Можна відвідати <strong>до 3 разів</strong> — а з новим другом ще <strong>+1 раз</strong></p>
+    <img class="hero-img" src="https://fil-m.github.io/animation_mentors/assets/animation_hero_vibrant.png" alt="Анімаційна творчість дітей">
+  </div>
+</header>
+
+<!-- WHAT HAPPENS -->
+<section id="about">
+  <div class="container">
+    <h2>🎬 Що буде на пробному занятті</h2>
+    <p class="sec-sub">Повний міні-цикл виробництва мультфільму — дитина проходить його від початку до кінця за одну зустріч.</p>
+    <ul class="timeline">
+      <li><strong>Ідея та сценарій</strong><span class="time">15 хв</span>
+        <span class="desc">Придумуємо героїв і сюжет: хто наш персонаж, куди він іде, що трапляється.</span></li>
+      <li><strong>Сцена та персонажі</strong><span class="time">15 хв</span>
+        <span class="desc">Будуємо декорації з LEGO, пластиліну, паперу — усього, що під руку потрапить.</span></li>
+      <li><strong>Зйомка stop-motion</strong><span class="time">20–30 хв</span>
+        <span class="desc">Кадр за кадром. Кілька секунд екрану — але скільки магії!</span></li>
+      <li><strong>Озвучка та титри</strong><span class="time">10 хв</span>
+        <span class="desc">Додаємо звуки, музику, імена авторів. Мультик готовий!</span></li>
+      <li><strong>Спільний перегляд</strong><span class="time">10 хв</span>
+        <span class="desc">Дивимося готові роботи — дитина бачить результат своєї праці вже сьогодні.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- WHY ANIMATION -->
+<section>
+  <div class="container">
+    <h2>🧠 Чому анімація?</h2>
+    <p class="sec-sub">Це не просто «зробити мультик». Анімація розвиває навички, які лежать в основі будь-якого навчання.</p>
+    <div class="grid grid-3">
+      <div class="card"><span class="icon">🗣️</span><h3>Мовлення</h3><p>Сюжет, діалоги, озвучка тренують наративне мислення.</p></div>
+      <div class="card"><span class="icon">🧮</span><h3>Логіка</h3><p>Причина → наслідок, послідовність кадрів, таймінг.</p></div>
+      <div class="card"><span class="icon">🎨</span><h3>Творчість</h3><p>Композиція, колір, форма — створення світу з нічого.</p></div>
+      <div class="card"><span class="icon">🤲</span><h3>Дрібна моторика</h3><p>Мікрорухи, точність, координація.</p></div>
+      <div class="card"><span class="icon">🧠</span><h3>Мислення</h3><p>Від ідеї до реалізації: планування, системність.</p></div>
+      <div class="card"><span class="icon">💪</span><h3>Характер</h3><p>Терпіння, наполегливість, уміння доводити до кінця.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section>
+  <div class="container">
+    <div class="proof-banner">
+      <div class="big">🏆 2 перших місця на міжнародних фестивалях</div>
+      <p>Учні 7 і 8 років — після 6–8 місяців занять. Діти вміють більше, ніж ми думаємо, — їм потрібен правильний інструмент.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/7QHdFrW3XLk" title="Як Цукерочка знайшла друзів — мультфільм учениці" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="quote">
+        <p>«А чи вмієте ви створювати мультфільми? Виявляється, це не так уже й складно, особливо на цікавих онлайн-заняттях з Тарасом Москаленком. Подивіться, що вийшло у 7-річної дівчинки!»</p>
+        <div class="author">Євгенія Захаркевич</div>
+        <div class="role">Мама учениці</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT TARAS -->
+<section>
+  <div class="container">
+    <h2>👨‍🏫 Хто веде заняття</h2>
+    <p class="sec-sub">Тарас Москаленко — практик кіновиробництва, який веде заняття особисто.</p>
+    <div class="grid grid-2">
+      <div class="card"><span class="icon">🎥</span><h3>10+ років у кіно і на телебаченні</h3><p>Організатор виробництва. Діти отримують знання, які зазвичай доступні лише професіоналам індустрії: від ідеї до звукомонтажу.</p></div>
+      <div class="card"><span class="icon">🧠</span><h3>Психолог за освітою</h3><p>Не «виправляю» дітей — створюю умови, в яких розкривається їхній потенціал. Працюю в щільній зв'язці з батьками: ви — опора дитини, я — професійний супровід.</p></div>
+      <div class="card"><span class="icon">⚡</span><h3>ADHD-friendly підхід</h3><p>Розумію дітей з РДУГ: не борюся з гіперактивністю, а перетворюю її на паливо для творчого гіперфокусу. Це практика навичок, а не корекція.</p></div>
+      <div class="card"><span class="icon">👨‍👩‍👧‍👦</span><h3>Формат «дитина + батьки»</h3><p>Анімація — довгий проєкт, і дитині легше, коли дорослий поруч. Разом ви створюєте не лише фільм, а й спільні спогади.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIAL RULES -->
+<section>
+  <div class="container">
+    <h2>🎟️ Скільки разів можна приходити</h2>
+    <p class="sec-sub">Пробні заняття — безкоштовні. Ми хочемо, щоб дитина відчула формат без тиску.</p>
+    <div class="rules">
+      <div class="rule">
+        <div class="num">3</div>
+        <div class="what">Пробні заняття — безкоштовно</div>
+        <div class="how">Можна відвідати до 3 разів, щоб звикнути, придивитися та зробити перший мультфільм.</div>
+      </div>
+      <div class="rule friend">
+        <div class="num">+1</div>
+        <div class="what">Приведи нового друга</div>
+        <div class="how">Приходьте з новим другом — і отримайте ще одне заняття. Анімація з другом — удвічі веселіше! 🎉</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO JOIN -->
+<section>
+  <div class="container">
+    <h2>📝 Як записатися</h2>
+    <p class="sec-sub">Три кроки — і ми підберемо зручний час.</p>
+    <div class="steps">
+      <div class="step"><span class="icon">📋</span><h3>1. Заповніть анкету</h3><p>Хвилина часу: ім'я, вік дитини, контакт.</p></div>
+      <div class="step"><span class="icon">📅</span><h3>2. Оберемо час</h3><p>Напишемо вам і підберемо групу та формат — онлайн чи в Karlsruhe.</p></div>
+      <div class="step"><span class="icon">🎬</span><h3>3. Створюєте мультфільм</h3><p>Приходьте на пробне — і дитина забирає свій перший фільм додому.</p></div>
+    </div>
+    <div class="final-cta">
+      <h2>✍️ Готові спробувати?</h2>
+      <p>Заповніть анкету — і ми запросимо вас на найближче пробне заняття.</p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdX01CuddMzcdBDTScMgclsGFJfJZRj4USjlGBAyK2_DJiP4w/viewform" target="_blank">📋 Заповнити анкету</a>
+        <a class="cta-ghost" href="https://t.me/robosapiens8" target="_blank">📱 Telegram: @robosapiens8</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <h2>❓ Часті запитання</h2>
+    <p class="sec-sub">Не знайшли відповідь — напишіть у Telegram, відповімо особисто.</p>
+
+    <details>
+      <summary>Чи потрібні художні навички?</summary>
+      <div class="a"><strong>Ні!</strong> Використовуємо LEGO, пластилін, папір — усе, що не потребує вміння малювати. Головне — бажання гратися й творити разом.</div>
+    </details>
+    <details>
+      <summary>Що якщо дитина не зможе всидіти?</summary>
+      <div class="a">Процес дуже динамічний: будуємо, рухаємо, переставляємо. Stop-motion чергує концентрацію з активною творчістю — нудьгувати не вийде. Для дітей з РДУГ гіперфокус стає перевагою, а не проблемою.</div>
+    </details>
+    <details>
+      <summary>Заняття онлайн чи офлайн?</summary>
+      <div class="a">Обидва формати. Онлайн — з будь-якої точки світу (потрібен телефон із камерою). Офлайн — у Karlsruhe.</div>
+    </details>
+    <details>
+      <summary>Якою мовою проходять заняття?</summary>
+      <div class="a">Українською. За потреби пояснюю німецькою або англійською.</div>
+    </details>
+    <details>
+      <summary>Чи можна з двома дітьми?</summary>
+      <div class="a">Якщо місця дозволяють — так. Але формат «один дорослий + одна дитина» дає найкращий результат.</div>
+    </details>
+    <details>
+      <summary>Скільки це коштує?</summary>
+      <div class="a">Пробні заняття — <strong>безкоштовно</strong> (до 3 разів, з новим другом — ще раз). Далі, якщо захочете продовжити, — невелика група-студія; вартість обговорюємо особисто.</div>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Тарас Москаленко · Animation Mentors · Karlsruhe</p>
+    <p style="margin-top:8px;"><a href="https://fil-m.github.io/animation-workshop/impressum.html">Impressum</a><span class="sep">·</span><a href="https://fil-m.github.io/animation-workshop/datenschutz.html">Datenschutz</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
