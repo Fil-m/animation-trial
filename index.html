@@ -143,6 +143,13 @@
   .need-cta{margin-top:34px; text-align:center;}
   .need-cta p{font-size:14px; color:var(--muted); margin-bottom:16px;}
 
+  /* TAKEAWAY */
+  .takeaway{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .take-item{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:28px 22px; text-align:center;}
+  .take-item .ticon{font-size:34px; margin-bottom:12px; display:block;}
+  .take-item h3{font-size:19px; margin-bottom:8px;}
+  .take-item p{font-size:13px; color:var(--muted);}
+
   /* FAQ */
   .faq{max-width:760px; margin:0 auto;}
   .faq-item{border:1px solid var(--line); border-radius:10px; background:var(--surface); margin-bottom:12px; overflow:hidden;}
@@ -179,6 +186,7 @@
     .growth{grid-template-columns:repeat(3,1fr);}
     .steps{grid-template-columns:repeat(3,1fr);}
     .need{grid-template-columns:repeat(2,1fr);}
+    .takeaway{grid-template-columns:1fr;}
   }
   @media(max-width:860px){
     .roles{grid-template-columns:1fr;}
@@ -202,7 +210,7 @@
       <a href="#video">Фільми дітей</a>
       <a href="#how">Як це працює</a>
       <a href="#mentor">Хто веде</a>
-      <a class="btn" href="https://t.me/Crm388bot?start=probne" target="_blank">Створити наш мультфільм</a>
+      <a class="btn" href="https://t.me/Crm388bot?start=probne" target="_blank">🎬 Створити наш мультфільм →</a>
     </div>
   </div>
 </nav>
@@ -215,7 +223,7 @@
       <div class="hero-content">
         <div class="label">Animation Mentors · сімейна анімаційна студія</div>
         <h1>Створіть мультфільм <span class="accent">разом із дитиною</span></h1>
-        <p class="hero-sub">За 60–90 хвилин ви придумаєте історію, створите героїв, знімете її кадр за кадром — і підете додому з власним фільмом.</p>
+        <p class="hero-sub">За 60–90 хвилин ви придумаєте історію, зіграєте її, знімете кадр за кадром — і отримаєте власний готовий фільм.</p>
         <div class="hero-meta">
           <span><b>6–12 років</b></span><span class="dot"></span>
           <span><b>дитина + батьки</b></span><span class="dot"></span>
@@ -223,10 +231,11 @@
           <span><b>60–90 хв</b></span>
         </div>
         <div class="hero-actions">
-          <a class="btn" href="https://t.me/Crm388bot?start=probne" target="_blank">🎬 Створити наш мультфільм</a>
+          <a class="btn" href="https://t.me/Crm388bot?start=probne" target="_blank">🎬 Створити наш мультфільм →</a>
           <a class="btn btn-ghost" href="#video">Подивитись, що вийшло</a>
         </div>
         <div class="free-note">Перше заняття — безкоштовно.</div>
+        <div class="free-note" style="margin-top:4px; font-style:italic;">Той момент, який можна буде передивитися через роки.</div>
       </div>
     </div>
   </div>
@@ -243,15 +252,18 @@
         <iframe src="https://www.youtube.com/embed/7QHdFrW3XLk" title="Як Цукерочка знайшла друзів" allowfullscreen loading="lazy"></iframe>
       </div>
       <div class="case">
-        <div class="label">Фільм учениці</div>
-        <h3>Як Цукерочка знайшла друзів</h3>
-        <div class="credit">7 років · режисерка — Софія, учениця Animation Mentors</div>
-        <div class="case-list">
+        <div class="label">Софія, 7 років</div>
+        <h3>«Як Цукерочка знайшла друзів»</h3>
+        <div class="credit">Вона придумала історію.<br>Ми допомогли її зняти.</div>
+        <div class="case-actions" style="margin-top:18px;">
+          <a class="btn" href="https://www.youtube.com/watch?v=7QHdFrW3XLk" target="_blank" style="font-size:14px; padding:11px 20px;">▶ Дивитися фільм</a>
+        </div>
+        <div class="case-list" style="margin-top:20px;">
           <div class="case-row"><span class="y">2 фільми</span><span>на міжнародних дитячих фестивалях</span></div>
           <div class="case-row"><span class="y">60–90 хв</span><span>від ідеї до готового відео — за одне заняття</span></div>
           <div class="case-row"><span class="y">100%</span><span>дитина — автор: історія, герої, зйомка</span></div>
         </div>
-        <div class="quote">«Виявляється, це не так уже й складно — коли поруч є хтось, хто веде процес.»</div>
+        <div class="quote" style="margin-top:20px;">«Виявляється, це не так уже й складно — коли поруч є хтось, хто веде процес.»</div>
       </div>
     </div>
   </div>
@@ -260,11 +272,11 @@
 <section id="memory">
   <div class="container">
     <div class="memory">
-      <div class="label">Чому це важливо</div>
-      <h2>Дитинство складається з моментів, які швидко минають</h2>
-      <p>Сьогодні дитина вигадує історію — завтра вже забуває її. Малюнки губляться. LEGO розбирається. Гра закінчується.</p>
-      <p>А цього разу ваша спільна гра перетвориться на справжній мультфільм.</p>
-      <p>Через рік ви зможете відкрити цей фільм і згадати не тільки, що створила дитина, а й як ви створювали його разом.</p>
+      <div class="label">Це більше, ніж мультфільм</div>
+      <h2>Діти щодня щось вигадують — і майже все це зникає</h2>
+      <p>Малюють, будують, грають, придумують історії. Більшість цього зникає, коли гра закінчується.</p>
+      <p>Цього разу ваша гра стане фільмом.</p>
+      <p>Його можна буде подивитися завтра. Через рік. Коли дитина виросте.</p>
       <div class="pull">Проведіть час разом → створіть щось реальне → заберіть результат із собою</div>
     </div>
   </div>
@@ -420,7 +432,33 @@
     </div>
     <div class="need-cta">
       <p>Безкоштовно · 60–90 хв · онлайн</p>
-      <a class="btn" href="https://t.me/Crm388bot?start=probne" target="_blank">🎬 Створити наш мультфільм</a>
+      <a class="btn" href="https://t.me/Crm388bot?start=probne" target="_blank">🎬 Створити наш мультфільм →</a>
+    </div>
+  </div>
+</section>
+
+<section id="takeaway">
+  <div class="container">
+    <div class="sec-head">
+      <div class="label">Після заняття</div>
+      <h2>Що ви заберете з собою</h2>
+    </div>
+    <div class="takeaway">
+      <div class="take-item">
+        <span class="ticon">🎬</span>
+        <h3>Ваш мультфільм</h3>
+        <p>Готове відео, створене вашою дитиною.</p>
+      </div>
+      <div class="take-item">
+        <span class="ticon">❤️</span>
+        <h3>Спільний досвід</h3>
+        <p>Ви створили його разом.</p>
+      </div>
+      <div class="take-item">
+        <span class="ticon">🧠</span>
+        <h3>Досвід створення</h3>
+        <p>Дитина сама придумала, зробила і завершила маленький проєкт.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -465,17 +503,13 @@
     <div class="fest">
       <div>
         <div class="label">Наступний рівень</div>
-        <h2>Хочете зробити з нього справжній авторський фільм?</h2>
-        <p class="lead">Сьогодні ви створюєте перший мультфільм. Далі — програма студії: повноцінний авторський фільм і фестивальна подача. 12 сімей на сезон.</p>
+        <h2>А якщо захочеться більшого?</h2>
+        <p class="lead">Після першого фільму дитина може продовжити в Animation Mentors і створити повноцінний авторський фільм для фестивальної подачі.</p>
       </div>
       <div class="trophies">
         <div class="trophy">
-          <div class="n">2×</div>
-          <div class="d">перші місця на міжнародних фестивалях</div>
-        </div>
-        <div class="trophy">
-          <div class="n">6–8</div>
-          <div class="d">місяців шляху від першого фільму до нагороди</div>
+          <div class="n">2</div>
+          <div class="d">міжнародні перемоги наших учнів</div>
         </div>
       </div>
     </div>
@@ -484,12 +518,17 @@
 
 <section class="final">
   <div class="container">
-    <div class="label">Одне заняття · один мультфільм</div>
+    <div class="label">Ваш перший мультфільм — безкоштовно</div>
     <h2>Колись ця дитина виросте.<br>А цей мультфільм залишиться.</h2>
     <p>Створіть його разом зараз.</p>
     <div class="actions">
-      <a class="btn" href="https://t.me/Crm388bot?start=probne" target="_blank">🎬 Створити наш мультфільм</a>
-      <a class="btn btn-ghost" href="https://t.me/Crm388bot?start=programa" target="_blank">Дізнатися про програму →</a>
+      <a class="btn" href="https://t.me/Crm388bot?start=probne" target="_blank">🎬 Створити наш мультфільм →</a>
+      <a class="btn btn-ghost" href="#video">Подивитись, що вийшло</a>
+    </div>
+    <div class="final-program" style="margin-top:44px; padding-top:32px; border-top:1px solid var(--line);">
+      <div class="label">Хочете продовжити?</div>
+      <p style="margin-top:12px; font-size:15px;">Персональна програма Animation Mentors — авторський фільм і фестивальна подача. 12 сімей на сезон.</p>
+      <p style="margin-top:10px;"><a class="btn btn-ghost" href="https://t.me/Crm388bot?start=programa" target="_blank" style="font-size:14px; padding:11px 20px;">Дізнатися про програму →</a></p>
     </div>
   </div>
 </section>
