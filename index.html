@@ -72,6 +72,7 @@
   .film:hover{transform:translateY(-4px); border-color:var(--muted);}
   .film .thumb{position:relative; aspect-ratio:16/9; overflow:hidden;}
   .film .thumb img{width:100%; height:100%; object-fit:cover; transition:transform .4s;}
+  .film .thumb video{width:100%; height:100%; object-fit:cover; display:block; background:#000;}
   .film:hover .thumb img{transform:scale(1.04);}
   .film .play{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
       background:rgba(13,13,15,.25);}
@@ -84,6 +85,9 @@
       display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
       padding:40px 28px; text-decoration:none; color:var(--text); transition:border-color .2s, transform .2s;}
   .film-cta:hover{border-color:var(--accent); transform:translateY(-4px);}
+  .clips{display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:12px;}
+  .clip{border-radius:8px; overflow:hidden; border:1px solid var(--line); background:#000; aspect-ratio:1/1;}
+  .clip video{width:100%; height:100%; object-fit:cover; display:block;}
   .film-cta .plus{width:64px; height:64px; border-radius:50%; border:2px solid var(--accent); color:var(--accent);
       display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:800; margin-bottom:18px;}
   .film-cta h3{font-family:'Archivo', sans-serif; font-weight:800; font-size:20px; letter-spacing:-.01em; margin-bottom:8px;}
@@ -211,6 +215,31 @@
         <span class="btn">Записатися на пробне</span>
       </a>
     </div>
+
+    <div class="sec-head" style="margin-top:64px; margin-bottom:28px;">
+      <div>
+        <div class="label">Етюди · короткі вправи</div>
+        <h2 style="font-size:clamp(1.4rem, 3vw, 2rem);">Секунди, в яких народжується анімація</h2>
+      </div>
+    </div>
+    <div class="clips">
+      <div class="clip"><video src="videos/0972867802.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092256.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092300.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092305.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092322.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092327.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092654.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092729.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092750.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092808.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092815.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_092826.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/video_093205.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/Емма_і_мама.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/Синій_плям.mp4" muted loop playsinline preload="metadata"></video></div>
+      <div class="clip"><video src="videos/бабушке.mp4" muted loop playsinline preload="metadata"></video></div>
+    </div>
   </div>
 </section>
 
@@ -287,6 +316,24 @@
     <p style="margin-top:8px;"><a href="https://fil-m.github.io/animation-workshop/impressum.html">Impressum</a><span class="sep">·</span><a href="https://fil-m.github.io/animation-workshop/datenschutz.html">Datenschutz</a></p>
   </div>
 </footer>
+
+<script>
+// autoplay visible clips (muted loop), pause hidden ones to save bandwidth
+(function(){
+  const clips = document.querySelectorAll('.clip video');
+  if (!clips.length || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.play().catch(() => {});
+      } else {
+        e.target.pause();
+      }
+    }
+  }, { rootMargin: '200px' });
+  clips.forEach(v => io.observe(v));
+})();
+</script>
 
 </body>
 </html>
